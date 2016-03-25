@@ -5,7 +5,6 @@ gem 'sass-rails', '4.0.4' # https://github.com/rails/sass-rails/issues/191
 gem 'coffee-rails', '~>4.1.0'
 gem 'uglifier', '>=1.3'
 
-gem 'rake', '~> 10.4.2'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -38,6 +37,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mongodb'
-gem 'activeadmin', github: 'activeadmin/active_admin', :ref => 'ad4caab46f1813bedf5acdb7739a17da546a5609'
-gem 'activeadmin-mongoid', github: 'fred/activeadmin-mongoid', branch: 'activeadmin-1.0'
+# gem 'activeadmin', github: 'activeadmin/active_admin', :ref => 'ad4caab46f1813bedf5acdb7739a17da546a5609'
+# gem 'activeadmin-mongoid', github: 'fred/activeadmin-mongoid', branch: 'activeadmin-1.0'
 gem 'axlsx', '~> 1.3.6', :require => false
