@@ -1,4 +1,4 @@
-﻿# war_room_viewer
+# war_room_viewer
 
 A basic card catalog.  The goal for this sucker is to assist in a closed source game project Im working on.  While the game might be closed source, this card catalog will be universal and basic.  Things to do:
 
