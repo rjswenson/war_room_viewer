@@ -1,4 +1,4 @@
-ActiveAdmin.register ::Unit::Base, as: 'Units' do
+ActiveAdmin.register ::Unit::Rank, as: 'Rank Units' do
 	actions :all
-	
+
 end

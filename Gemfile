@@ -1,42 +1,39 @@
 source 'https://rubygems.org'
-
 gem 'rails', '~>4.1.1'
 gem 'sass-rails', '4.0.4' # https://github.com/rails/sass-rails/issues/191
 gem 'coffee-rails', '~>4.1.0'
 gem 'uglifier', '>=1.3'
 
+gem 'rake', '~> 10.4.2'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+# Database
+gem 'mongoid', '>= 4.0.0.rc2'
+gem 'mongoid_paranoia', github: 'simi/mongoid_paranoia'
+gem 'pg', '~> 0.17.1'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'devise', '~> 3.3.0' # https://github.com/codahale/bcrypt-ruby/issues/89
+gem 'cancancan', '~> 1.12.0'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+# Admin Portal
+gem 'activeadmin', github: 'activeadmin/active_admin', :ref => 'ad4caab46f1813bedf5acdb7739a17da546a5609'
+gem 'activeadmin-mongoid', github: 'fred/activeadmin-mongoid', branch: 'activeadmin-1.0' # https://github.com/elia/activeadmin-mongoid/issues/79
+gem 'axlsx', '~> 1.3.6', :require => false
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Import tools
+gem 'paperclip-ffmpeg', '~> 1.2.0'
+gem 'fastimage', require: false
+gem 'quick_magick', '~> 0.8.0'
+gem 'mongoid-paperclip', '~> 0.0.10', :require => "mongoid_paperclip"
+gem 'aws-sdk', '~> 1.66.0'
+gem 'schlepp', :git => 'git://github.com/lyleunderwood/schlepp.git', :tag => '0.1.2'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'github_api', '~> 0.12.4', :require => false
+  gem 'ruby-prof', '~> 0.15.9', :require => false
   gem 'pry-rails', '~> 0.3.4'
+  gem 'pry-byebug', '~> 3.0.1'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'mongodb'
-# gem 'activeadmin', github: 'activeadmin/active_admin', :ref => 'ad4caab46f1813bedf5acdb7739a17da546a5609'
-# gem 'activeadmin-mongoid', github: 'fred/activeadmin-mongoid', branch: 'activeadmin-1.0'
-gem 'axlsx', '~> 1.3.6', :require => false
