@@ -6,32 +6,33 @@ module Unit
 
 	  field :name
 	  field :size
-	  field :pop_cost, type: Float
+	  field :pop_cost#, type: Float
 	  field :resource_1 # minerals
 	  field :resource_2 # gas
 	  field :resource_3 # special?
 
-	  field :hitpoints, type: Float
-	  field :shield, type: Float
+	  field :hitpoints#, type: Float
+	  field :shield#, type: Float
 
 	  field :g_attack
-	  field :g_attack_dps, type: Float
+	  field :g_attack_dps#, type: Float
 	  field :a_attack
-	  field :a_attack_dps, type: Float
+	  field :a_attack_dps#, type: Float
 	  field :attack_cd
 	  field :attack_mod_1
 	  field :attack_mod_2
-	  field :ground_attack_range, type: Float
-	  field :air_attack_range, type: Float
+	  field :ground_attack_range#, type: Float
+	  field :air_attack_range#, type: Float
 
-	  field :max_level, type: Integer
-	  field :sight, type: Float
+	  field :max_level#, type: Integer
+	  field :sight#, type: Float
 	  field :notes
 
-	  field :build_time, type: Float
+	  field :build_time#, type: Float
 
 	  has_many :abilities
-	  has_one :armor_type, class_name: 'Armor'
+	  has_one :game
+	  has_one :armor
 
 	  PAPERCLIP_SETTINGS = {
 	    'development' => {

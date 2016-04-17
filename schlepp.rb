@@ -11,13 +11,19 @@ def db_config
   }
 end
 
-def do_extract(name, opts = { col_sep: ',', quote_char: '`' })
+def do_extract(name, table = name, required = true)
   file 'Csv' do |csv|
-    csv.name = File.join('unit_csvs', "#{name}.csv")
+    if name.is_a?(Array)
+      csv.name = name.map {|f| File.join('unit_csvs', "#{f}.csv")}
+    else
+      csv.name = File.join('unit_csvs', "#{name}.csv")
+    end
     csv.has_headers = true
-    csv.required = true
+    csv.required = required
     csv.encoding = 'utf-8'
-    csv.csv_options = opts
+
+    csv.csv_options = {col_sep: "|", quote_char: '"'}
+
     csv.strip = {:all => true}
 
     csv.before do
@@ -30,7 +36,7 @@ def do_extract(name, opts = { col_sep: ',', quote_char: '`' })
     end
 
     csv.map do |item|
-      @extraction.extract_from_file(item, "#{name}")
+      @extraction.extract_from_file(item, table)
     end
   end
 end
@@ -62,11 +68,11 @@ Schlepp::Burden.new :starcraft do
   cd File.join('data')
 
   [
-    'protoss_sc1',
-    'terran_sc1',
-    'zerg_sc1'
-  ].each do |file|
-    do_extract(file)
+    'protoss',
+    'terran',
+    'zerg'
+  ].each do |name|
+    do_extract(["#{name}*"], "#{name}_starcraft")
   end
 
   file 'Binary' do |bin|
@@ -88,30 +94,44 @@ Schlepp::Burden.new :starcraft do
   db do |war_room|
     war_room.config = db_config
 
-    ['zerg', 'protoss', 'terran'].each do |race|
-      war_room.table :"#{race}_sc1" do |units|
+    ['protoss', 'terran', 'zerg'].each do |race|
+      war_room.table :"#{race}_starcraft" do |units|
         units.mapping = {
           :'0' => :name,
           :'1' => :size,
-          :'2' => :population,
-          :'3' => :minerals,
-          :'4' => :gas,
-          :'5' => :armor,
-          :'6' => :hp,
-          :'7' => :shield,
-          :'8' => :g_attack,
-          :'9' => :a_attack,
-          :'10' => :cooldown,
-          :'11' => :range,
-          :'12' => :attack_mod,
-          :'13' => :sight,
-          :'14' => :notes,
-          :'15' => :build_time,
-          :'16' => :abilities
+          :'2' => :speed,
+          :'3' => :population,
+          :'4' => :minerals,
+          :'5' => :gas,
+          :'6' => :armor,
+          :'7' => :hp,
+          :'8' => :shield,
+          :'9' => :g_attack,
+          :'10' => :g_attack_dps,
+          :'11' => :a_attack,
+          :'12' => :a_attack_dps,
+          :'13' => :cooldown,
+          :'14' => :range,
+          :'15' => :attack_mod,
+          :'16' => :sight,
+          :'17' => :notes,
+          :'18' => :build_time,
+          :'19' => :abilities,
+          :'20' => :cargo,
+          :'21' => :bonus
         }
 
         units.before do
           p "Starting SC1 #{race}"
+
+          @origin_game = :starcraft
+          # Wonky way to add indexes to PG tables.
+          @extraction.before
+          @extraction.indexes = <<-EOT
+            DROP INDEX IF EXISTS race_idx;
+            CREATE INDEX race_idx ON #{race}_starcraft ("0", "2", "6");
+          EOT
+          @extraction.after
         end
 
         units.after do

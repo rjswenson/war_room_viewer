@@ -41,15 +41,17 @@ module Importer
         sight:                unit.sight.to_f,
         notes:                unit.notes,
         build_time:           unit.build_time,
-        level:                0,
+        max_level:            3,
         abilities:            nil,
+        game:                 @origin_game,
         armor:                nil
       }
     end
 
-    def catalog_finder_hash(unit)
+    def unit_finder_hash(unit)
       {
-        name: unit.name
+        name: unit.name,
+        game: @origin_game
       }
     end
 
@@ -57,7 +59,7 @@ module Importer
       # add image to the Unit::Base
     end
 
-    def sanitize_catalog(record)
+    def sanitize_unit(record)
       required_s = [:name, :hitpoints]
       sanitize_record(record, required_s, @import, :"Unit::Base")
     end
