@@ -30,6 +30,7 @@ module Importer
         resource_3:           nil,
         hitpoints:            unit.hp.to_f,
         shield:               unit.shield.to_f,
+        armor_value:          unit.armor,
         g_attack:             unit.g_attack,
         g_attack_dps:         nil,
         a_attack:             unit.a_attack,
@@ -81,6 +82,11 @@ module Importer
 
     def map_asset(item)
       # add image to the Unit::Base
+    end
+
+    def set_file_info(meta_hash)
+      @file_species = meta_hash[:species]
+      @origin_game = meta_hash[:game_name]
     end
 
     def sanitize_unit(record)

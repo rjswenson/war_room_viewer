@@ -122,10 +122,8 @@ Schlepp::Burden.new :starcraft do
         }
 
         units.before do
-          p "Starting SC1 #{species}"
+          @unit_import.set_file_info({game_name: :starcraft, species: species.to_sym})
 
-          @origin_game = :starcraft
-          @file_species = species.to_sym
           # Wonky way to add indexes to PG tables.
           @extraction.before
           @extraction.indexes = <<-EOT

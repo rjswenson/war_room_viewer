@@ -96,3 +96,14 @@ module ActiveAdmin
     end
   end
 end
+
+module ActiveAdmin::ViewHelpers::DisplayHelper
+  alias :pretty_format_before_symbol_hack :pretty_format
+  def pretty_format(object)
+    if object.is_a?(Symbol)
+      object.to_s
+    else
+      pretty_format_before_symbol_hack(object)
+    end
+  end
+end

@@ -15,6 +15,7 @@ module Unit
 
 	  field :hitpoints#, type: Float
 	  field :shield#, type: Float
+	  field :armor_value
 
 	  field :g_attack
 	  field :g_attack_dps#, type: Float
@@ -36,6 +37,8 @@ module Unit
 	  belongs_to :game
 	  belongs_to :species
 	  belongs_to :armor, class_name: 'Armor'
+
+	  has_and_belongs_to_many :talents
 
 	  PAPERCLIP_SETTINGS = {
 	    'development' => {
