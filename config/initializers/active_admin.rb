@@ -5,7 +5,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Monster Manual"
+  config.site_title = "War Room Viewer"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -54,7 +54,7 @@ ActiveAdmin.setup do |config|
   # ensure that there is a currently logged in admin user.
   #
   # This setting changes the method which Active Admin calls
-  # within the controller.
+  # within the application controller.
   config.authentication_method = :authenticate_admin_user!
 
   # == User Authorization
@@ -63,7 +63,12 @@ ActiveAdmin.setup do |config|
   # method in a before filter of all controller actions to
   # ensure that there is a user with proper rights. You can use
   # CanCanAdapter or make your own. Please refer to documentation.
-  config.authorization_adapter = ActiveAdmin::CanCanAdapter
+  # config.authorization_adapter = ActiveAdmin::CanCanAdapter
+
+  # In case you prefer Pundit over other solutions you can here pass
+  # the name of default policy class. This policy will be used in every
+  # case when Pundit is unable to find suitable policy.
+  # config.pundit_default_policy = "MyDefaultPunditPolicy"
 
   # You can customize your CanCan Ability class name here.
   # config.cancan_ability_class = "Ability"
@@ -81,7 +86,7 @@ ActiveAdmin.setup do |config|
   # user performing them.
   #
   # This setting changes the method which Active Admin calls
-  # to return the currently logged in user.
+  # (within the application controller) to return the currently logged in user.
   config.current_user_method = :current_admin_user
 
 
@@ -110,7 +115,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  # config.root_to = ''
+  # config.root_to = 'dashboard#index'
 
 
   # == Admin Comments
@@ -131,7 +136,7 @@ ActiveAdmin.setup do |config|
   #
   # Enable and disable Batch Actions
   #
-  config.batch_actions = false
+  config.batch_actions = true
 
 
   # == Controller Filters
@@ -168,8 +173,8 @@ ActiveAdmin.setup do |config|
   #   config.register_stylesheet 'my_print_stylesheet.css', :media => :print
   #
   # To load a javascript file:
-  config.register_javascript 'dynamic_select.js'
-  config.register_javascript 'jquery_nested_form.js'
+  #   config.register_javascript 'my_javascript.js'
+
 
   # == CSV options
   #
@@ -186,15 +191,12 @@ ActiveAdmin.setup do |config|
   #
   # To change the default utility navigation to show a link to your website & a logout btn
   #
-  config.namespace :admin do |admin|
-    admin.build_menu :utility_navigation do |menu|
-        menu.add id: 'current_user', priority: 10, html_options: {},
-          label: ->{ display_name(current_active_admin_user) + " (#{current_active_admin_user.time_zone})" },
-          url:   ->{ auto_url_for(current_active_admin_user) || '#' },
-          if:    :current_active_admin_user?
-      admin.add_logout_button_to_menu menu
-    end
-  end
+  #   config.namespace :admin do |admin|
+  #     admin.build_menu :utility_navigation do |menu|
+  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
+  #       admin.add_logout_button_to_menu menu
+  #     end
+  #   end
   #
   # If you wanted to add a static menu item to the default menu provided:
   #
@@ -241,6 +243,6 @@ ActiveAdmin.setup do |config|
   # hand side with a filter for each attribute of the registered model.
   # You can enable or disable them for all resources here.
   #
-  config.filters = true
+  # config.filters = true
 
 end

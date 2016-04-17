@@ -17,6 +17,11 @@ gem 'cancancan', '~> 1.12.0'
 # Admin Portal
 gem 'activeadmin', github: 'activeadmin/active_admin', :ref => 'ad4caab46f1813bedf5acdb7739a17da546a5609'
 gem 'activeadmin-mongoid', github: 'fred/activeadmin-mongoid', branch: 'activeadmin-1.0' # https://github.com/elia/activeadmin-mongoid/issues/79
+gem 'active_skin', '~> 0.0.9'
+gem 'nested_form', '~> 0.3.2'
+gem 'nested_form_ui', '~> 0.0.1'
+gem 'jquery-ui-rails', '~> 5.0.5'
+gem 'chosen-rails', '~> 1.4.1'
 gem 'axlsx', '~> 1.3.6', :require => false
 
 # Import tools
@@ -25,7 +30,7 @@ gem 'fastimage', require: false
 gem 'quick_magick', '~> 0.8.0'
 gem 'mongoid-paperclip', '~> 0.0.10', :require => "mongoid_paperclip"
 gem 'aws-sdk', '~> 1.66.0'
-gem 'schlepp', :git => 'git://github.com/lyleunderwood/schlepp.git', :tag => '0.1.2'
+gem 'schlepp', :git => 'git://github.com/lyleunderwood/schlepp.git', :tag => '0.2.0'
 
 group :development, :test do
   gem 'github_api', '~> 0.12.4', :require => false

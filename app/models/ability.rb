@@ -1,10 +1,7 @@
 class Ability
-  include Mongoid::Document
-  
-  field :name
-  field :key
-  field :description
-  field :position
-  
-  belongs_to :unit
+  include CanCan::Ability
+
+  def initialize(admin_user)
+
+  end
 end

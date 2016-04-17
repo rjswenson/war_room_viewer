@@ -32,5 +32,11 @@ module WarRoomViewer
     # http://guides.rubyonrails.org/security.html#unsafe-query-generation
     config.action_dispatch.perform_deep_munge = false
 
+    # config.middleware.use Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*', {:headers => :any, :expose => ['Content-Range'], :methods => [:get, :post, :put, :head, :delete]}
+    #   end
+    # end
   end
 end

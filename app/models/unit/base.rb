@@ -30,9 +30,10 @@ module Unit
 
 	  field :build_time#, type: Float
 
-	  has_many :abilities
+	  # has_many :abilities
 	  has_one :game
-	  has_one :armor
+	  has_one :race
+	  has_one :armor, class_name: 'Armor'
 
 	  PAPERCLIP_SETTINGS = {
 	    'development' => {

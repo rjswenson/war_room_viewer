@@ -1,0 +1,169 @@
+// SASS variable overrides must be declared before loading up Active Admin's styles.
+//
+// To view the variables that Active Admin provides, take a look at
+// `app/assets/stylesheets/active_admin/mixins/_variables.css.scss` in the
+// Active Admin source.
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+
+// Active Admin's got SASS!
+@import "active_admin/mixins";
+@import "active_admin/base";
+
+// active_skin settings
+$skinActiveColor: #6E6E6E;
+$skinLogo: white url(/images/admin_logo.png) no-repeat 0;
+
+@import "active_skin";
+@import "chosen";
+@import "nested_form_ui/sortable";
+@import "active_admin/chosen";
+@import "jquery-ui/sortable";
+
+// Overriding any non-variable SASS must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   .status_tag { background: #6090DB; }
+
+p.inline-errors {display: none;}
+
+input.editable_text_column {
+  background-color: #FBFF8C;
+  border: 1px none #FBFF8C;
+  box-shadow: 0 2px 19px #AAAAAA;
+  color: black;
+  display: none;
+  font-family: serif;
+  font-size: 1em;
+  font-style: italic;
+  height: 30px;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  width: 180px;
+  z-index: 9090;
+}
+
+div.editable_text_column{
+  padding:4px;
+  background-color: #f9fbc2;
+}
+
+div.rule-discount {
+  display: table;
+  height: 100%;
+  position: relative;
+  width: 100%
+}
+
+span.rule-discount-links {
+  position: absolute;
+  right: 0;
+}
+
+div#index_footer nav.pagination span.last {
+  display: none;
+}
+
+body.active_admin fieldset.inputs {
+  margin-bottom: 10px;
+  padding-top: 40px;
+}
+
+body.active_admin fieldset.inputs li.input {
+  &.list_picker {
+    .label {
+      height: 50px;
+    }
+  }
+
+  .comboselect {
+    .rightlabel {
+      margin-top: -16px;
+    }
+
+    .rightlabel, .leftlabel {
+      font-weight: bold;
+    }
+
+    select {
+      width: 200px;
+      height: 200px;
+    }
+
+    .csleft, .cs-buttons {
+      float: left;
+    }
+
+    .cs-buttons > * {
+      display: block;
+      width: 50px;
+      text-align: center;
+      margin: 15px 10px;
+    }
+  }
+}
+
+input.datepicker {
+  text-align: right;
+}
+
+div.no-dots {
+  list-style-type: none;
+
+  li.datepicker {
+    width: 300px;
+  }
+
+  li#query_submit_action {
+    clear: both;
+    padding: 30px 0 10px 0;
+  }
+
+  li.select {
+    height: 29px;
+
+    label {
+      height: 100%;
+    }
+  }
+
+  div.left-align {
+    float: left;
+
+    div.chosen-container {
+      width: 190px !important;
+      float: right;
+    }
+
+  }
+
+  div.right-align {
+    float: left;
+    margin-left: 2%;
+
+    input.datepicker {
+      float: right;
+      display: inline;
+      width: 60%;
+    }
+
+    li.datepicker {
+      height: 40px;
+    }
+  }
+}
+
+.ui-datepicker {
+  width: 180px;
+}
+
+.ui-datepicker-title {
+  font-size: 0.8em !important;
+}
+
+.col-total_amount_whsl, .col-login_count, .col-user_count, .col-orders_count, .col-total_quantity {
+  text-align: right;
+}
+

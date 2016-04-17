@@ -1,5 +1,5 @@
 module Unit
-	class Pragaon
+	class Paragon < Unit::Base
 
 	end
 end
