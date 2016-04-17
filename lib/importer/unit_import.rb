@@ -13,7 +13,7 @@ module Importer
 
     def map_unit(unit)
       if sanitize_unit(unit_hash(unit))
-        import(Unit::Base, unit_finder_hash(unit), unit_hash(unit))
+        import(Unit::Rank, unit_finder_hash(unit), unit_hash(unit))
         @imported_units << unit.name
         print '.'
       end
@@ -22,6 +22,7 @@ module Importer
     def unit_hash(unit)
       {
         name:                 unit.name,
+        key:                  unit.name.split(' ').first.downcase,
         size:                 unit.size,
         pop_cost:             unit.population.to_f,
         resource_1:           unit.minerals,
@@ -42,16 +43,39 @@ module Importer
         notes:                unit.notes,
         build_time:           unit.build_time,
         max_level:            3,
-        abilities:            nil,
-        game:                 @origin_game,
-        armor:                nil
+        # abilities:            nil,
+        game:                 find_or_create_game,
+        species:              find_or_create_species,
+        armor:                find_or_create_armor(unit.armor_type)
       }
+    end
+
+    def find_or_create_game
+      if Game.where(key: @origin_game).first.blank?
+        Game.create!(key: @origin_game)
+      end
+      Game.where(key: @origin_game).first
+    end
+
+    def find_or_create_species
+      if Species.where(key: @file_species).first.blank?
+        Species.create!(key: @file_species)
+      end
+      Species.where(key: @file_species).first
+    end
+
+    def find_or_create_armor(armor_string)
+      return nil unless armor_string.present?
+
+      if Armor.where(key: armor_string.to_sym).first.blank?
+        Armor.create!(key: armor_string.to_sym)
+      end
+      Armor.where(key: armor_string.to_sym).first
     end
 
     def unit_finder_hash(unit)
       {
         name: unit.name,
-        game: @origin_game
       }
     end
 

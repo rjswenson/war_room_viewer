@@ -94,8 +94,8 @@ Schlepp::Burden.new :starcraft do
   db do |war_room|
     war_room.config = db_config
 
-    ['protoss', 'terran', 'zerg'].each do |race|
-      war_room.table :"#{race}_starcraft" do |units|
+    ['protoss', 'terran', 'zerg'].each do |species|
+      war_room.table :"#{species}_starcraft" do |units|
         units.mapping = {
           :'0' => :name,
           :'1' => :size,
@@ -118,24 +118,25 @@ Schlepp::Burden.new :starcraft do
           :'18' => :build_time,
           :'19' => :abilities,
           :'20' => :cargo,
-          :'21' => :bonus
+          :'21' => :armor_type
         }
 
         units.before do
-          p "Starting SC1 #{race}"
+          p "Starting SC1 #{species}"
 
           @origin_game = :starcraft
+          @file_species = species.to_sym
           # Wonky way to add indexes to PG tables.
           @extraction.before
           @extraction.indexes = <<-EOT
             DROP INDEX IF EXISTS race_idx;
-            CREATE INDEX race_idx ON #{race}_starcraft ("0", "2", "6");
+            CREATE INDEX race_idx ON #{species}_starcraft ("0", "2", "6");
           EOT
           @extraction.after
         end
 
         units.after do
-          p "Finished SC1 #{race}."
+          p "Finished SC1 #{species}."
         end
 
         units.each do |sc_unit|

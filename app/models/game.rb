@@ -1,8 +1,8 @@
 class Game
   include Mongoid::Document
 
-  field :key
   field :name
+  field :key
   field :year
   field :tags
 

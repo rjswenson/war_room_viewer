@@ -5,6 +5,8 @@ module Unit
 	  include Mongoid::Paranoia
 
 	  field :name
+	  field :key
+
 	  field :size
 	  field :pop_cost#, type: Float
 	  field :resource_1 # minerals
@@ -31,9 +33,9 @@ module Unit
 	  field :build_time#, type: Float
 
 	  # has_many :abilities
-	  has_one :game
-	  has_one :race
-	  has_one :armor, class_name: 'Armor'
+	  belongs_to :game
+	  belongs_to :species
+	  belongs_to :armor, class_name: 'Armor'
 
 	  PAPERCLIP_SETTINGS = {
 	    'development' => {
