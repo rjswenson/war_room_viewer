@@ -91,7 +91,7 @@ module ActiveAdmin
   module Helpers
     module Collection
       def collection_size(collection=collection)
-        collection.try(:count)
+        collection.try(:count) || 0
       end
     end
   end
