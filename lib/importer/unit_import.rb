@@ -1,5 +1,5 @@
-module Import
-  class UnitImport < ::Import::Base
+module Importer
+  class UnitImport < ::Importer::Base
     def initialize(import)
       super
 
@@ -15,6 +15,7 @@ module Import
       if sanitize_unit(unit_hash(unit))
         import(Unit::Base, unit_finder_hash(unit), unit_hash(unit))
         @imported_units << unit.name
+        print '.'
       end
     end
 

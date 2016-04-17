@@ -1,4 +1,4 @@
-module Import
+module Importer
   class Base
     attr_accessor :import
 

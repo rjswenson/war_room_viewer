@@ -1,4 +1,4 @@
-module Import
+module Importer
   class Extraction
     attr_accessor :indexes
 

@@ -30,7 +30,6 @@ def do_extract(name, opts = { col_sep: ',', quote_char: '`' })
     end
 
     csv.map do |item|
-      p item
       @extraction.extract_from_file(item, "#{name}")
     end
   end
@@ -39,10 +38,10 @@ end
 
 Schlepp::Burden.new :starcraft do
   before do
-    @import = Import.create!(source: 'catalog import')
-    @extraction = ::Import::Extraction.new
-    @unit_import = Import::UnitImport.new(@import)
-    binding.pry
+    @import = Import.create!(source: 'starcraft import')
+
+    @extraction = Importer::Extraction.new
+    @unit_import = Importer::UnitImport.new(@import)
     @unit_import.before
   end
 
