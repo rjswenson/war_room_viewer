@@ -1,0 +1,8 @@
+name|key|game|sort|text|type1|type2|strength|weakness
+Reinforced Plate|plate|war_room|1||||crush, pierce|fire, elec
+Plasteel Web|plasteel|war_room|2||||pierce|fire
+Composite Shell|composite|war_room|3|||||
+Asbestos Padding|asbestos|war_room|4||||crush|elec
+Salvaged Chain|chain|war_room|5||||pierce, elec|fire
+Knotted Bark|bark|war_room|6||||fire, elec|crush, pierce
+Hardened Carapace|carapace|war_room|7|||||

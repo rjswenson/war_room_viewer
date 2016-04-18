@@ -1,0 +1,14 @@
+Name|Size|Speed|Pop|Minerals|Gas|Armor|HP|Shield|Ground Attack|G. DPS| Air Attack|A. DPS|Cooldown|Range|Attack Mod|Sight|Notes|Build Time|Abilities|Cargo|Bonus
+Dropship| L|| 2| 100| 100| 1| 150| 0| 0|||| 0| 0| 8|| 50||||
+Firebat| S|| 1| 50| 25| 1| 50| 16cs| 0|| 22/11stim|| 2| 2| 7| B| 24||||
+Ghost| S|| 1| 25| 75| 0| 45| 10c| 10c|| 22|| 7| 1| 9/11| S,B| 50||||
+Goliath| L|| 2| 100| 50| 1| 125| 12| 20e|| 22|| 5/8| 1/4| 8|| 40||||
+Marine| S|| 1| 50| 0| 0| 40| 6| 6|| 15/7.5stim|| 4/5| 1| 7| B| 24||||
+Medic| S|| 1| 50| 25| 1| 60| 0| 0|||| 0| 0| 9| S,B| 30||||
+Missile Turret| L|| 0| 75| 0| 0| 200| 0| 20e|| 15|| 7| 0| 11| D| 30||||
+Science Vessel| L|| 2| 100| 225| 1| 200| 0| 0|||| 0| 0| 10| D,S| 80||||
+SCV| S|| 1| 50| 0| 0| 60| 5| 0|| 15|| 1| 0| 7|| 20||||
+Siege Tank| L|| 2| 150| 100| 1| 150| 30e/70es| 0|| 37/75|| 7/12| 3/5| 10|| 50||||
+Valkyrie| L|| 3| 250| 125| 2| 200| 0| 6es|| 64|| 6| 1| 8|| 50||||
+Vulture| M|| 2| 75| 0| 0| 80| 20c| 0|| 30|| 5| 2| 8| S| 30||||
+Wraith| L|| 2| 150| 100| 0| 120| 8| 20e|| 30/22|| 5| 1/2| 7| S| 60||||
