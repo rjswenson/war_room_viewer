@@ -1,5 +1,3 @@
-belongs_to :
-
 class Talent
   include Mongoid::Document
 

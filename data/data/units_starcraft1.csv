@@ -1,0 +1,48 @@
+Game|Species|Key|Name|Size|Speed|Pop|Minerals|Gas|Armor|HP|Shield|Ground Attack|G. DPS| Air Attack|A. DPS|Cooldown|Range|Attack Mod|Sight|Notes|Build Time|Abilities|Cargo|Bonus
+starcraft1|protoss|arbiter1|Arbiter| L|| 4| 100| 350| 1| 200| 150| 10e|| 10e|| 45| 5| 1| 9| S| 160|||
+starcraft1|protoss|archon1|Archon| L|| 4| 0 (100)| 0 (300)| 0| 10| 350| 30s|| 30s|| 20| 2| 3| 8|| 20|||
+starcraft1|protoss|carrier1|Carrier| L|| 6| 350| 250| 4| 300| 150| 6|| 6||| 8| 1| 11|| 140|||
+starcraft1|protoss|corsair1|Corsair| M|| 2| 150| 100| 1| 100| 80| 0|| 5es|| 8| 5| 1| 9| S| 40|||
+starcraft1|protoss|darkarch1|Dark Archon| L|| 4| 0 (250)| 0 (200)| 1| 25| 200| 0|| 0||| 0| 0| 10| S| 20|||
+starcraft1|protoss|darktemp1|Dark Templar| S|| 2| 125| 100| 1| 80| 40| 40|| 0|| 30| 1| 3| 7| C| 50|||
+starcraft1|protoss|dragoon1|Dragoon| L|| 2| 125| 50| 1| 100| 80| 20e|| 20e|| 30| 4/6| 2| 8|| 50|||
+starcraft1|protoss|hightemp1|High Templar| S|| 2| 50| 150| 0| 40| 40| 0|| 0||| 0| 0| 7| S| 50|||
+starcraft1|protoss|observer1|Observer| S|| 1| 25| 75| 0| 40| 20| 0|| 0||| 0| 0| 9/11| D,C| 40|||
+starcraft1|protoss|photon1|Photon Cannon| L|| 0| 150| 0| 0| 100| 100| 20|| 20|| 22| 7| 0| 11| D| 50|||
+starcraft1|protoss|probe1|Probe| S|| 1| 50| 0| 0| 20| 20| 5|| 0|| 22| 1| 0| 8|| 20|||
+starcraft1|protoss|reaver1|Reaver| L|| 4| 200| 100| 0| 100| 80| 100s/125s|| 0|| 60| 8| 0| 10|| 70|||
+starcraft1|protoss|scout1|Scout| L|| 3| 275| 125| 0| 150| 100| 8|| 28e|| 30/22| 4| 1/2| 8/10|| 80|||
+starcraft1|protoss|shuttle1|Shuttle| L|| 2| 200| 0| 1| 80| 60| 0|| 0||| 0| 0| 8|| 60|||
+starcraft1|protoss|zealot1|Zealot| S|| 2| 100| 0| 1| 100| 60| 16|| 0|| 22| 1| 2| 7|| 40|||
+starcraft1|zerg|broodling1|Broodling| S|| 0| 0| 0| 0| 30| 4| 0|| 15|| 1| 1| 5| B|| 0|||
+starcraft1|zerg|cocoon1|Cocoon| L|| 2| 0| 0| 0| 200| 0| 0|||| 0| 0| 4| B|| 0|||
+starcraft1|zerg|defiler1|Defiler| M|| 2| 50| 150| 1| 80| 0| 0|||| 0| 0| 10| B,S|| 50|||
+starcraft1|zerg|devourer1|Devourer| L|| 2| +150| +50| 2| 250| 0| 25e|| 100|| 6| 2| 10| B|| 40|||
+starcraft1|zerg|drone1|Drone| S|| 1| 50| 0| 0| 40| 5| 0|| 22|| 1| 0| 7| B|| 20|||
+starcraft1|zerg|egg1|Egg| L|| 0| 0| 0| 10| 200| 0| 0|||| 0| 0| 4| B|| 0|||
+starcraft1|zerg|guardian1|Guardian| L|| 2| +50| +100| 2| 150| 20| 0|| 30|| 8| 2| 11| B|| 40|||
+starcraft1|zerg|hydralisk1|Hydralisk| M|| 1| 75| 25| 0| 80| 10e| 10e|| 15|| 4/5| 1| 6| B|| 28|||
+starcraft1|zerg|infested1|Infested Terran| S|| 1| 100| 50| 0| 60| 500es| 0|||| 1| 0| 5| B|| 40|||
+starcraft1|zerg|larva_(unit)1|Larva_(Unit)|Larva|| S| 0| 0| 0| 10| 25| 0|| 0||0| 0|4|B||20|||
+starcraft1|zerg|lurker1|Lurker| M|| 2| +50| +100| 1| 125| 20s| 0|| 37|| 6| 2| 8| B|| 40|||
+starcraft1|zerg|mutalisk1|Mutalisk| S|| 2| 100| 100| 0| 120| 9| 9|| 30|| 3| 1| 7| B|| 40|||
+starcraft1|zerg|overlord1|Overlord| L|| 0| 100| 0| 0| 200| 0| 0|||| 0| 0| 9/11| B,D|| 40|||
+starcraft1|zerg|queen1|Queen| M|| 2| 100| 100| 0| 120| 0| 0|||| 0| 0| 10| B,S|| 50|||
+starcraft1|zerg|scourge1|Scourge| S|| 0.5| 12| 38| 0| 25| 0| 110|||| 1| 0| 5| B|| 30|||
+starcraft1|zerg|spore1|Spore Colony| L|| 0| +50| 0| 0| 400| 0| 15|| 15|| 7| 0| 10| D|| 20|||
+starcraft1|zerg|sunken1|Sunken Colony| L|| 0| +50| 0| 2| 300| 40e| 0|| 32|| 7| 0| 10||| 20|||
+starcraft1|zerg|ultralisk1|Ultralisk| L|| 4| 200| 200| 1/3| 400| 20| 0|| 15|| 1| 3| 7| B|| 60|||
+starcraft1|zerg|zergling1|Zergling| S|| 0.5| 25| 0| 0| 35| 5| 0|| 8/6|| 1| 1| 5| B|| 28|||
+starcraft1|terran|dropship1|Dropship| L|| 2| 100| 100| 1| 150| 0| 0|||| 0| 0| 8|| 50||||
+starcraft1|terran|firebat1|Firebat| S|| 1| 50| 25| 1| 50| 16cs| 0|| 22/11stim|| 2| 2| 7| B| 24||||
+starcraft1|terran|ghost1|Ghost| S|| 1| 25| 75| 0| 45| 10c| 10c|| 22|| 7| 1| 9/11| S,B| 50||||
+starcraft1|terran|goliath1|Goliath| L|| 2| 100| 50| 1| 125| 12| 20e|| 22|| 5/8| 1/4| 8|| 40||||
+starcraft1|terran|marine1|Marine| S|| 1| 50| 0| 0| 40| 6| 6|| 15/7.5stim|| 4/5| 1| 7| B| 24||||
+starcraft1|terran|medic1|Medic| S|| 1| 50| 25| 1| 60| 0| 0|||| 0| 0| 9| S,B| 30||||
+starcraft1|terran|missile1|Missile Turret| L|| 0| 75| 0| 0| 200| 0| 20e|| 15|| 7| 0| 11| D| 30||||
+starcraft1|terran|science1|Science Vessel| L|| 2| 100| 225| 1| 200| 0| 0|||| 0| 0| 10| D,S| 80||||
+starcraft1|terran|scv1|SCV| S|| 1| 50| 0| 0| 60| 5| 0|| 15|| 1| 0| 7|| 20||||
+starcraft1|terran|siege1|Siege Tank| L|| 2| 150| 100| 1| 150| 30e/70es| 0|| 37/75|| 7/12| 3/5| 10|| 50||||
+starcraft1|terran|valkyrie1|Valkyrie| L|| 3| 250| 125| 2| 200| 0| 6es|| 64|| 6| 1| 8|| 50||||
+starcraft1|terran|vulture1|Vulture| M|| 2| 75| 0| 0| 80| 20c| 0|| 30|| 5| 2| 8| S| 30||||
+starcraft1|terran|wraith1|Wraith| L|| 2| 150| 100| 0| 120| 8| 20e|| 30/22|| 5| 1/2| 7| S| 60||||

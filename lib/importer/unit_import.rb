@@ -22,7 +22,7 @@ module Importer
     def unit_hash(unit)
       {
         name:                 unit.name,
-        key:                  unit.name.split(' ').first.downcase,
+        key:                  unit.key,
         size:                 unit.size,
         pop_cost:             unit.population.to_f,
         resource_1:           unit.minerals,
@@ -45,33 +45,37 @@ module Importer
         build_time:           unit.build_time,
         max_level:            3,
         # abilities:            nil,
-        game:                 find_or_create_game,
-        species:              find_or_create_species,
-        armor:                find_or_create_armor(unit.armor_type)
+        game:                 find_or_create_game(unit.game.try(:to_sym)),
+        species:              find_or_create_species(unit.species.try(:to_sym)),
+        armor:                find_or_create_armor(unit.armor_type.try(:to_sym))
       }
     end
 
-    def find_or_create_game
-      if Game.where(key: @origin_game).first.blank?
-        Game.create!(key: @origin_game)
+    def find_or_create_game(game_key)
+      return nil unless game_key.present?
+
+      if Game.where(key: game_key).first.blank?
+        Game.create!(key: game_key)
       end
-      Game.where(key: @origin_game).first
+      Game.where(key: game_key).first
     end
 
-    def find_or_create_species
-      if Species.where(key: @file_species).first.blank?
-        Species.create!(key: @file_species)
+    def find_or_create_species(species_key)
+      return nil unless species_key.present?
+
+      if Species.where(key: species_key).first.blank?
+        Species.create!(key: species_key)
       end
-      Species.where(key: @file_species).first
+      Species.where(key: species_key).first
     end
 
-    def find_or_create_armor(armor_string)
-      return nil unless armor_string.present?
+    def find_or_create_armor(armor_key)
+      return nil unless armor_key.present?
 
-      if Armor.where(key: armor_string.to_sym).first.blank?
-        Armor.create!(key: armor_string.to_sym)
+      if Armor.where(key: armor_key).first.blank?
+        Armor.create!(key: armor_key)
       end
-      Armor.where(key: armor_string.to_sym).first
+      Armor.where(key: armor_key).first
     end
 
     def unit_finder_hash(unit)
@@ -82,11 +86,6 @@ module Importer
 
     def map_asset(item)
       # add image to the Unit::Base
-    end
-
-    def set_file_info(meta_hash)
-      @file_species = meta_hash[:species]
-      @origin_game = meta_hash[:game_name]
     end
 
     def sanitize_unit(record)

@@ -14,9 +14,9 @@ end
 def do_extract(name, table = name, required = true)
   file 'Csv' do |csv|
     if name.is_a?(Array)
-      csv.name = name.map {|f| File.join('unit_csvs', "#{f}.csv")}
+      csv.name = name.map {|f| File.join('data', "#{f}.csv")}
     else
-      csv.name = File.join('unit_csvs', "#{name}.csv")
+      csv.name = File.join('data', "#{name}.csv")
     end
     csv.has_headers = true
     csv.required = required
@@ -42,9 +42,9 @@ def do_extract(name, table = name, required = true)
 end
 
 
-Schlepp::Burden.new :starcraft do
+Schlepp::Burden.new :units do
   before do
-    @import = Import.create!(source: 'starcraft import')
+    @import = Import.create!(source: 'unit import')
 
     @extraction = Importer::Extraction.new
     @unit_import = Importer::UnitImport.new(@import)
@@ -67,16 +67,10 @@ Schlepp::Burden.new :starcraft do
 
   cd File.join('data')
 
-  [
-    'protoss',
-    'terran',
-    'zerg'
-  ].each do |name|
-    do_extract(["#{name}*"], "#{name}_starcraft")
-  end
+  do_extract(["units_*"], "units")
 
   file 'Binary' do |bin|
-    path = File.join('unit_imgs', 'starcraft1', '*.png')
+    path = File.join('unit_images', '*.png')
 
     bin.before do
       p 'Starting assets'
@@ -94,52 +88,55 @@ Schlepp::Burden.new :starcraft do
   db do |war_room|
     war_room.config = db_config
 
-    ['protoss', 'terran', 'zerg'].each do |species|
-      war_room.table :"#{species}_starcraft" do |units|
-        units.mapping = {
-          :'0' => :name,
-          :'1' => :size,
-          :'2' => :speed,
-          :'3' => :population,
-          :'4' => :minerals,
-          :'5' => :gas,
-          :'6' => :armor,
-          :'7' => :hp,
-          :'8' => :shield,
-          :'9' => :g_attack,
-          :'10' => :g_attack_dps,
-          :'11' => :a_attack,
-          :'12' => :a_attack_dps,
-          :'13' => :cooldown,
-          :'14' => :range,
-          :'15' => :attack_mod,
-          :'16' => :sight,
-          :'17' => :notes,
-          :'18' => :build_time,
-          :'19' => :abilities,
-          :'20' => :cargo,
-          :'21' => :armor_type
-        }
+    war_room.table :units do |units|
+      units.mapping = {
+        :'0' => :game,
+        :'1' => :species,
+        :'2' => :key,
+        :'3' => :name,
+        :'4' => :size,
+        :'5' => :speed,
+        :'6' => :population,
+        :'7' => :minerals,
+        :'8' => :gas,
+        :'9' => :armor,
+        :'10' => :hp,
+        :'11' => :shield,
+        :'12' => :g_attack,
+        :'13' => :g_attack_dps,
+        :'14' => :a_attack,
+        :'15' => :a_attack_dps,
+        :'16' => :cooldown,
+        :'17' => :range,
+        :'18' => :attack_mod,
+        :'19' => :sight,
+        :'20' => :notes,
+        :'21' => :build_time,
+        :'22' => :abilities,
+        :'23' => :cargo,
+        :'24' => :armor_type
+      }
 
-        units.before do
-          @unit_import.set_file_info({game_name: :starcraft, species: species.to_sym})
+      units.before do
+        # Wonky way to add indexes to PG tables.
+        @extraction.before
+        @extraction.indexes = <<-EOT
+          DROP INDEX IF EXISTS game_idx;
+          DROP INDEX IF EXISTS species_idx;
+          DROP INDEX IF EXISTS unit_stats;
+          CREATE INDEX game_idx ON units ("0", "2");
+          CREATE INDEX species_idx ON units ("1", "2");
+          CREATE INDEX unit_stats ON units ("2", "3", "6", "7");
+        EOT
+        @extraction.after
+      end
 
-          # Wonky way to add indexes to PG tables.
-          @extraction.before
-          @extraction.indexes = <<-EOT
-            DROP INDEX IF EXISTS race_idx;
-            CREATE INDEX race_idx ON #{species}_starcraft ("0", "2", "6");
-          EOT
-          @extraction.after
-        end
+      units.after do
 
-        units.after do
-          p "Finished SC1 #{species}."
-        end
+      end
 
-        units.each do |sc_unit|
-          @unit_import.map_unit(sc_unit)
-        end
+      units.each do |unit_data|
+        @unit_import.map_unit(unit_data)
       end
     end
   end

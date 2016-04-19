@@ -1,0 +1,60 @@
+Game|Species|Key|Name|Size|Speed|Supply|Minerals|Gas|Armor|HP|Shields|Ground Attack|G. DPS|Air Attack|A. DPS|Cooldown|Range|Attack Mod|Sight|Notes|Build Time|Abilities|Cargo|Bonus
+starcraft2|protoss|probe2|Probe| 0.75| 1.5| 1| 50| 0| 0 (+1)| 20| 20| L, M| | 5 (+0)| 3.3| | 2.8125| | M| 8| 17|| 1|
+starcraft2|protoss|zealot2|Zealot| 0.75| 1.2| 2| 100| 0| 1 (+1)| 100| 50| L, B| | 8 (+1) x2| 13.3 (+1.7)| | 2.25 (+0.5)| | M| 9| 38/28|| 2|
+starcraft2|protoss|sentry2|Sentry| 1.25| 1.0| 2| 50| 100| 1 (+1)| 40| 40| L, M, P| | 6 (+1)| 6 (+1)| | 2.25| | 5| 10| 37/32|| 2| 6 (+1)
+starcraft2|protoss|stalker2|Stalker| 1.25| 1.44| 2| 125| 50| 1 (+1)| 80| 80| A, M| +4 A| 10 (+1)| 6.9 (+0.7)| P| 2.9531| +2.8 A| 6| 10| 42/32|| 2| 10 (+1)
+starcraft2|protoss|hightemp2|High Templar| 0.75| | 2| 50| 150| 0 (+1)| 40| 40| L, B, P| | | | | 1.875| | | 10| 55/45|| 2|
+starcraft2|protoss|darktemp2|Dark Templar| 0.75| 1.694| 2| 125| 125| 1 (+1)| 40| 80| L, B, P| | 45 (+5)| 26.6 (+3)| | 2.8125| | M| 8| 55/45|| 2|
+starcraft2|protoss|immortal2|Immortal| 1.5| 1.45| 4| 250| 100| 1 (+1)| 200| 100| A, M| +30 (+3) A| 20 (+2)| 13.8 (+1.4)| | 2.25| +20.7 (+2.1) A| 6| 9| 55|| 4|
+starcraft2|protoss|colossus2|Colossus| 2 / | 1.65| 6| 300| 200| 1 (+1)| 200| 150| A, M, Ma| | 15 (+2) x2| 18.2 (+2.4)| L| 2.25| | 6 (+3)| 10| 75|| 8|
+starcraft2|protoss|archon2|Archon| 1.5| 1.754| 4| 0| 0| 0 (+1)| 10| 350| P, Ma| +10 (+1) B| 25 (+3)| 14.3 (+1.7)| S| 2.8125| +5.7 (+0.6) B| 3| 9| 12|| 4| 25 (+3)
+starcraft2|protoss|observer2|Observer| 1| | 1| 25| 75| 0 (+1)| 40| 20| L, M| | | | | 1.875 (+0.9375)| | | 11| 30|| |
+starcraft2|protoss|warp2|Warp Prism| 1.75| | 2| 200| 0| 0 (+1)| 100| 100| A, M, P| | | | | 2.9531 (+0.422)| | | 10| 50|| |
+starcraft2|protoss|phoenix2|Phoenix| 1.5| 1.11| 2| 150| 100| 0 (+1)| 120| 60| L, M| +5 L| | | P| 4.25| +9 L| 5 (+2)| 10| 35|| | 5 (+1) x2
+starcraft2|protoss|mothership2|Mothership Core| 2| 0.85| 2| 100| 100| 1 (+1)| 130| 60| A, M, P| | 8 (+1)| 9.4 (+1.2)| P| 1.875| | 5| 9| 30|| |
+starcraft2|protoss|void2|Void Ray| 1.5| 0.5| 4| 250| 150| 0 (+1)| 150| 100| A, M| +4 (+1), +10 (+1) A| 6 (+1)| 12 (+2)| | 2.25| +8 (+2), +20 (+2) A| 6| 10| 60|| | 6 (+1)
+starcraft2|protoss|oracle2|Oracle| 1.5| 0.86| 3| 150| 150| 0 (+1)| 100| 60| L, M, P| +10 L| 15 | 17.4| | 4| +11.6| 4| 10| 50|| |
+starcraft2|protoss|tempest2|Tempest| 2.5| 3.3| 4| 300| 200| 2 (+1)| 300| 150| A, M, Ma| +50 (+2) Ma Air| 30 (+3)| 9.1 (+0.9)| P| 1.875| +15.2 (+0.6) Ma Air| 15| 12| 60|| | 30 (+3)
+starcraft2|protoss|carrier2|Carrier| 2.5| 0.5 (0.125/ 0.25)| 6| 350| 250| 2 (+1)| 300| 150| A, M, Ma| | | 26.7 (+5.3)| | 1.875| | 8| 12| 120|| |
+starcraft2|protoss|interceptor2|Interceptor| 0.5| 3.0| 0| 25| 0| 0 (+1)| 40| 40| L, M| | 5 (+1) x2| 3.3 (+0.7)| | 7.5| | 2| 7| 8|| | 5 (+1) x2
+starcraft2|protoss|mothership2|Mothership| 2.75| 2.21| 8| 300| 300| 2 (+1)| 350| 350| A, M, P, Ma| | 6 (+1) x6| 16.3 (+2.7)| | 1.4062| | 7| 14| 100|| | 6 (+1) x6
+starcraft2|protoss|photon2|Photon Cannon| 2x2| 1.25| | 150| 0| 1| 150| 150| A, S| | 20| 16| | | | 7| 11| 40|| | 20
+starcraft2|protoss|nexus2|Nexus| 5x5| 1.25| | 400| 0| 1| 1000| 1000| A, S| | 20| 16| | | | 13| 11| 100|| | 20
+starcraft2|zerg|larva2|Larva| || | | 15| 0.25| | 10| 25|| L,B|| | | | | | | ||
+starcraft2|zerg|drone2|Drone| 1|| 50| 0| 17| 0.75| 1| 0 (+1)| 40|| L,B|| 5 (+0)| | | 3.3| | M| ||
+starcraft2|zerg|queen2|Queen| 2|| 150| 0| 50| 1.75| 2| 1 (+1)| 175|| B,P|| 4 (+1) x2| 9 (+1)| | 8 (+2)| 9 (+1)| 5/7| P||
+starcraft2|zerg|zergling2|Zergling| 0.5|| 25| 0| 24| 0.75| 1| 0 (+1)| 35|| L,B|| 5 (+1)| | | 7.2 (+1.4), 8.5 (+1.7)| | M| ||
+starcraft2|zerg|baneling2|Baneling| 0.5|| 25| 25| 20| 0.75| 2| 0 (+1)| 30|| B|| 20 (+2)| | +15 (+2)L / +60 (+3)S| | | M| S||
+starcraft2|zerg|roach2|Roach| 2|| 75| 25| 27| 1| 2| 1 (+1)| 145|| A,B|| 16 (+2)| | | 8 (+1)| | 4| ||
+starcraft2|zerg|hydralisk2|Hydralisk| 2|| 100| 50| 33| 1.25| 2| 0 (+1)| 80|| L,B|| 12 (+1)| 12 (+1)| | 16 (+1.3)| 16 (+1.3)| 5 (+1)| P||
+starcraft2|zerg|infestor2|Infestor| 2|| 100| 150| 50| 1.5| 2| 0 (+1)| 90|| A,B,P|| | | | | | | ||
+starcraft2|zerg|infested2|Infested Terran| || | | 5| 0.75| | 0| 50|| L,B|| 8| 8| | 9.3| 9.3| 5| ||
+starcraft2|zerg|swarm2|Swarm Host| 3|| 200| 100| 40| 1.625| 4| 1 (+1)| 160|| A,B|| | | |" 27.9 (+2.3)<ref>With 2 Locust|Locusts.</ref>"| | | P||
+starcraft2|zerg|locust2|Locust| || | | 5| 0.75| | 0 (+1)| 65|| L,B|| 12 (+1)| | | 14.0 (+1.2)| | 3| P||
+starcraft2|zerg|ultralisk2|Ultralisk| 6|| 300| 200| 55| 2| 8| 1 (+1) ((+2))| 500|| A,B,Ma|| 35 (+3)| | | 40.7 (+3.5)| | 1| S||
+starcraft2|zerg|overlord2|Overlord| || 100| 0| 25| | | 0 (+1)| 200|| A,B|| | | | | | | ||
+starcraft2|zerg|overseer2|Overseer| || 50| 50| 17| | | 1 (+1)| 200|| A,B|| | | | | | | ||
+starcraft2|zerg|changeling2|Changeling| || | | 1| 0.75| | 0| 5|| L,B|| | | | | | | ||
+starcraft2|zerg|mutalisk2|Mutalisk| 2|| 100| 100| 33| | | 0 (+1)| 120|| L,B|| 9 (+1)| 9 (+1)| | 5.9 (+0.7)| 5.9 (+0.7)| 3| B,P||
+starcraft2|zerg|corruptor2|Corruptor| 2|| 150| 100| 40| | | 2 (+1)| 200|| A,B|| | 14 (+1)| +6 (+1)Ma| | 7.4 (+0.5)| 6| P||
+starcraft2|zerg|viper2|Viper| 3|| 100| 200| 40| | | 1 (+1)| 150|| A,B,P|| | | | | | | ||
+starcraft2|zerg|brood2|Brood Lord| 4|| 150| 150| 34| | | 1 (+1)| 225|| A,B,Ma|| 20 (+2)| | | 8 (+0.8)| | 9.5| ||
+starcraft2|zerg|broodling2|Broodling| || | | 1| 0.75| | 0 (+1)| 30|| L,B|| 4 (+1)| | | 6.2 (+1.5)| | M| ||
+starcraft2|zerg|spine2|Spine Crawler| || 100| | 50| 2x2| | 2| 300|| A,B,S|| 25| | +5A| 13.5| | 7| ||
+starcraft2|zerg|spore2|Spore Crawler| || 75| | 30| 2x2| | 1| 400|| A,B,S|| | 15| + 30 B| | 17.4| 7| P||
+starcraft2|zerg|nydus2|Nydus Worm| || 100| 100| 20| 3x3| | 1| 200|| A,B,S|| | | | | | | ||
+starcraft2|terran|scv2|SCV||2.81|1|50||0|45||5|||||M|||L,M|17|||
+starcraft2|terran|marine2|Marine||2.25|1|50||0|45||7|||||5|||L,B|25|||
+starcraft2|terran|reaper2|Reaper||3.75|1|50|50|0|60||5|||||5|||L,B|45|||
+starcraft2|terran|marauder2|Marauder||2.25|2|100|30|1|125||10-20|||||6|||A,B|30|||
+starcraft2|terran|ghost2|Ghost||2.25|2|200|100|0|100||10-20|||||6|||B,P|40|||
+starcraft2|terran|hellion2|Hellion||4.25|2|100||0|90||8-19|||||5|||L,M|30|||
+starcraft2|terran|widow2|Widow Mine||2.81|2|75|25|0|90||125+35 shield|||||5|||L,M|40|||
+starcraft2|terran|siege2|Siege Tank||2.25|2|150|125|1|160||15-50|||||7-13|||A,M|45|||
+starcraft2|terran|hellbat2|Hellbat||2.25|2|100||0|135||18-33|||||2|||L,B,M|30|||
+starcraft2|terran|thor2|Thor||1.88|6|300|200|1|400||6-33|||||7-10|||A,M,Ma|60|||
+starcraft2|terran|medivac2|Medivac||4.25|2|100|100|1|150||0||||||||A,M|42|||
+starcraft2|terran|viking2|Viking||2.75|2|150|75|0|125||10-14|||||6-9|||A,M|42|||
+starcraft2|terran|raven2|Raven||2.25|2|100|200|1|140||0||||||||L,M|60|||
+starcraft2|terran|banshee2|Banshee||2.75|2|150|100|0|140||13|||||6|||L,M|60|||
+starcraft2|terran|battlecruiser2|Battlecruiser||1.88|6|400|300|3|550||6-8|||||6|||A,M|90|||
