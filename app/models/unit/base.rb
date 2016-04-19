@@ -33,33 +33,12 @@ module Unit
 
 	  field :build_time#, type: Float
 
-	  # has_many :abilities
 	  belongs_to :game
 	  belongs_to :species
 	  belongs_to :armor, class_name: 'Armor'
 
+	  field :images, type: Hash
+
 	  has_and_belongs_to_many :talents
-
-	  PAPERCLIP_SETTINGS = {
-	    'development' => {
-	      :path   => ':rails_root/tmp/import/images/processed/:style-:altered_image_filename',
-	      :url    => '/product_images/:style-:altered_image_filename'
-	    },
-
-	    'test' => {
-	      :path   => ':rails_root/tmp/import/test/images/processed/:style-:altered_image_filename',
-	      :url    => '/product_images/:style-:altered_image_filename'
-	    }
-	  }
-
-	  has_mongoid_attached_file :asset, {
-    :styles => {
-      :icon => { :geometry => "80x95&", :processors => [:cropper, :quantizer], :format => :png, :quant_quality => "65-80" },
-      :detail => { :geometry => "315x375&", :processors => [:cropper], :format => :png },
-      :original => { :geometry => "1275x1515", :processors => [:cropper], :format => :png }
-    }
-  }.merge(PAPERCLIP_SETTINGS[Rails.env])
-
-  validates_attachment_content_type :asset, :content_type => ["image/png", "image/jpg", "image/jpeg"]
 	end
 end

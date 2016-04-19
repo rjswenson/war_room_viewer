@@ -1,5 +1,7 @@
 module Importer
   class UnitImport < ::Importer::Base
+    include Importer::MediaImport
+
     def initialize(import)
       super
 
@@ -14,12 +16,14 @@ module Importer
     def map_unit(unit)
       if sanitize_unit(unit_hash(unit))
         import(Unit::Rank, unit_finder_hash(unit), unit_hash(unit))
-        @imported_units << unit.name
+        @imported_units << unit.key
         print '.'
       end
     end
 
     def unit_hash(unit)
+      images = @unit_images[unit.key]
+
       {
         name:                 unit.name,
         key:                  unit.key,
@@ -45,9 +49,10 @@ module Importer
         build_time:           unit.build_time,
         max_level:            3,
         # abilities:            nil,
-        game:                 find_or_create_game(unit.game.try(:to_sym)),
-        species:              find_or_create_species(unit.species.try(:to_sym)),
-        armor:                find_or_create_armor(unit.armor_type.try(:to_sym))
+        game:                 find_or_create_game(unit.game),
+        species:              find_or_create_species(unit.species),
+        armor:                find_or_create_armor(unit.armor_type),
+        images: get_image_hash(images)
       }
     end
 
@@ -80,21 +85,29 @@ module Importer
 
     def unit_finder_hash(unit)
       {
-        name: unit.name,
+        key: unit.key
       }
     end
 
-    def map_asset(item)
-      # add image to the Unit::Base
-    end
-
     def sanitize_unit(record)
-      required_s = [:name, :hitpoints]
+      required_s = [:key, :name]
       sanitize_record(record, required_s, @import, :"Unit::Base")
     end
 
     def after
-      Unit::Base.where(:name.nin => @imported_units.to_a).each { |c| c.delete }
+      missings = []
+      # binding.pry
+      Unit::Base.all.only(:_id, :key).entries.each do |unit_model|
+        missings << unit_model.id unless @imported_units.include?(unit_model.key)
+      end
+      Unit::Base.where(:_id.in => missings).update_all(:deleted_at => Time.now)
+
+      if Rails.env.development?
+        tmp_dir = File.join(Rails.root, 'tmp', 'import', 'images', 'processed', '*')
+        dst_dir = File.join(Rails.root, 'public', 'unit_images')
+        FileUtils.mkdir_p dst_dir unless File.exist? dst_dir
+        Dir.glob(tmp_dir) {|image| FileUtils.mv(image, dst_dir)}
+      end
     end
   end
 end

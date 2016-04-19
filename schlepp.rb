@@ -70,18 +70,18 @@ Schlepp::Burden.new :units do
   do_extract(["units_*"], "units")
 
   file 'Binary' do |bin|
-    path = File.join('unit_images', '*.png')
+    path = File.join('media', '*')
 
     bin.before do
-      p 'Starting assets'
+      @unit_import.before_media
     end
 
     bin.after do
-      p 'Done with assets'
+      @unit_import.after_media
     end
 
     bin.glob path do |asset|
-      @unit_import.map_asset(asset)
+      @unit_import.map_media(asset)
     end
   end
 
