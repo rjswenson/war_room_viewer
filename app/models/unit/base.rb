@@ -39,6 +39,8 @@ module Unit
 
 	  field :images, type: Hash
 
+	  index({ key: 1 }, { unique: true })
+
 	  has_and_belongs_to_many :talents
 	end
 end

@@ -1,37 +1,53 @@
-ActiveAdmin.register ::Unit::Rank, as: 'Ranks' do
+ActiveAdmin.register Unit::Rank, as: 'Ranks' do
   menu parent: 'Unit'
   actions :index, :edit, :create, :update, :new, :show, :destroy
   #:duplicate, :preview, :publish
-  config.filters = false
 
-  def permitted_params
-    params.require(:unit_rank).permit!
+  # config.sort_order = "name_desc"
+
+  filter :key, as: :string
+  # filter :game, as: :select, collection: Proc.new {Game.distinct(:key)}
+  # filter :species, as: :select, collection: Proc.new {Species.distinct(:key)}
+  controller do
+    def permitted_params
+      params.require(:unit_rank).permit!
+    end
+
+    def scoped_collection
+      Unit::Rank
+    end
   end
 
   index do
     selectable_column
+    column "Portrait" do |rank|
+      if rank.images.present?
+        image_tag image_path_or_missing(rank.images['P'][0], 'icon')
+        # binding.pry
+      end
+    end
+    column :key do |rank|
+      link_to rank.key, admin_rank_path(rank)
+    end
     column :name
-    column :key
-    column :size
-    column :resource_1
-    column :resource_2
-    column :resource_3
     column :pop_cost
     column :hitpoints
     column :shield
-    column :armor_value
-    column :g_attack
-    column :a_attack
-    column :sight
     column :build_time
-    column :species do |unit|
-      unit.species.try(:key)
+    column :species, sortable: :species do |unit|
+      if unit.species.present?
+        link_to unit.species.key, admin_species_path(unit.species.id)
+      end
     end
-    column :armor do |unit|
-      unit.armor.try(:key)
+    column :armor, sortable: :armor do |unit|
+      if unit.armor.present?
+        link_to unit.armor.key, admin_armor_path(unit.armor.id)
+      end
     end
-    column :game do |unit|
-      unit.game.try(:key)
+    column :game, sortable: :game do |unit|
+      if unit.game.present?
+        link_to unit.game.key, admin_game_path(unit.game.id)
+      end
     end
     actions
   end

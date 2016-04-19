@@ -96,9 +96,8 @@ module Importer
 
     def after
       missings = []
-      # binding.pry
       Unit::Base.all.only(:_id, :key).entries.each do |unit_model|
-        missings << unit_model.id unless @imported_units.include?(unit_model.key)
+        missings << unit_model.id unless @imported_units.include?(unit_model.key.to_s)
       end
       Unit::Base.where(:_id.in => missings).update_all(:deleted_at => Time.now)
 

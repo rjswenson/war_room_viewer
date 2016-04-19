@@ -32,6 +32,8 @@ module WarRoomViewer
     # http://guides.rubyonrails.org/security.html#unsafe-query-generation
     config.action_dispatch.perform_deep_munge = false
 
+    # config.assets.paths << Rails.root.join("public", "unit_images")
+
     # config.middleware.use Rack::Cors do
     #   allow do
     #     origins '*'
