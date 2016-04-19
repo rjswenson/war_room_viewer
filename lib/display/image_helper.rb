@@ -7,14 +7,14 @@ module Display
     def image_path(image, quality = "detail")
       return nil unless image
       if Rails.env.development?
-        path = Rails.root.join('public', 'unit_images', image[quality]).to_s
+        path = File.join('public', 'assets', 'images', 'unit_images', image[quality]).to_s
       else
         path = open(image[quality].to_s)
       end
       unless ([String, Tempfile].include?(path.class) && File.exists?(path)) || path.class == StringIO
         return nil
       end
-      path
+      path.gsub("public", '')
     end
 
     def media_url(item, type)

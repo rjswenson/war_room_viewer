@@ -103,7 +103,7 @@ module Importer
 
       if Rails.env.development?
         tmp_dir = File.join(Rails.root, 'tmp', 'import', 'images', 'processed', '*')
-        dst_dir = File.join(Rails.root, 'public', 'unit_images')
+        dst_dir = File.join(Rails.root, 'public', 'images', 'unit_images')
         FileUtils.mkdir_p dst_dir unless File.exist? dst_dir
         Dir.glob(tmp_dir) {|image| FileUtils.mv(image, dst_dir)}
       end

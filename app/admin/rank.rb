@@ -23,7 +23,6 @@ ActiveAdmin.register Unit::Rank, as: 'Ranks' do
     column "Portrait" do |rank|
       if rank.images.present?
         image_tag image_path_or_missing(rank.images['P'][0], 'icon')
-        # binding.pry
       end
     end
     column :key do |rank|
