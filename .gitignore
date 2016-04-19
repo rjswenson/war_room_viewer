@@ -7,6 +7,8 @@ data
 data/*/*
 data/data
 data/images
+public/images/*
+public/**/*
 nbproject/*
 public/unit_images/*
 public/unit_videos/*
